@@ -9,14 +9,18 @@ class Carts extends Component {
     data: [],
   };
   componentDidMount() {
-    const promise = axios.get("https://dummyjson.com/products");
-    promise.then((res, req) => {
-      this.setState({ data: res.data.products });
-      console.log(this.state.data)
-    }).catch((error) => { console.log("Api Error :",error.message) })
+    const promise = axios.get("https://dummyjson.com/carts");
+    promise
+      .then((res, req) => {
+        this.setState({ data: res.data.carts });
+        console.log(this.state.data);
+      })
+      .catch((error) => {
+        console.log("Api Error :", error.message);
+      });
   }
   render() {
-    const products = this.state.data
+    const carts = this.state.data;
     return (
       <div className="bg-[#0077b6]   mx-auto">
         <div className="max-w-4xl mx-auto py-4">
@@ -31,10 +35,23 @@ class Carts extends Component {
           </div>
         </div>
 
-        <Table title={"Carts"}  columnA={"Title"} columnB={"category"} columnC={"Price"} columnD={"rating"} img={"Images"}>
-          {products.map((product) => (
-
-      <Row key={product.id} columnA={product.title} columnB={product.category} columnC={product.price} columnD={product.rating} imgSrc={product.images[0]}/>
+        <Table
+          title={"Carts"}
+          columnA={"Title"}
+          columnB={"category"}
+          columnC={"Price"}
+          columnD={"rating"}
+          img={"Images"}
+        >
+          {carts.map((cart) => (
+            <Row
+              key={cart.id}
+              columnA={cart.title}
+              // columnB={product.category}
+              // columnC={product.price}
+              // columnD={product.rating}
+              // imgSrc={product.images[0]}
+            />
           ))}
         </Table>
       </div>
