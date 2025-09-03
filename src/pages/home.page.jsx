@@ -1,9 +1,15 @@
 import { Component } from "react";
+import Table from "../components/table.component";
+import Navbar from "../components/navbar.component";
 
 class Home extends Component {
+  state= {
+    hello:"hello"
+  }
   render() {
     return <>
-    <h1 className="text-black">I don't care bro</h1>
+   <Navbar/>
+    <Table hello={this.state.hello}/>
     </>
   }
 }
