@@ -1,5 +1,4 @@
 import { Component } from "react";
-import Table from "../components/table.component";
 import Navbar from "../components/navbar.component";
 import { Link } from "react-router";
 
@@ -10,7 +9,7 @@ class Home extends Component {
   render() {
     return (
       <>
-        <Navbar />
+      
         <div className="h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-6 px-4 shadow-lg">
           <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between">
 

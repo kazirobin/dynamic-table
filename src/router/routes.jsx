@@ -5,31 +5,32 @@ import Products from "../pages/products.page";
 import Carts from "../pages/carts.page";
 import Recipes from "../pages/recipes.page";
 import Users from "../pages/users.page";
+import MainLayout from "../components/layout/main.layout.component";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <MainLayout><Home /></MainLayout>,
     errorElement: <Error />,
   },
   {
     path: "/products",
-    element: <Products/>,
+    element: <MainLayout><Products/></MainLayout>,
     errorElement: <Error />,
   },
   {
     path: "/carts",
-    element: <Carts/>,
+    element: <MainLayout><Carts/></MainLayout>,
     errorElement: <Error />,
   },
   {
     path: "/recipes",
-    element: <Recipes/>,
+    element: <MainLayout><Recipes/></MainLayout>,
     errorElement: <Error />,
   },
   {
     path: "/users",
-    element: <Users/>,
+    element: <MainLayout><Users/></MainLayout>,
     errorElement: <Error />,
   },
 ]);

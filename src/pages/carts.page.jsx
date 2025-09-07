@@ -1,9 +1,5 @@
 import { Component } from "react";
-import Table from "./../components/table.component";
-import { Link } from "react-router";
 import axios from "axios";
-import Row from "../components/row.component";
-import Products from "./products.page";
 
 class Carts extends Component {
   state = {
@@ -11,7 +7,7 @@ class Carts extends Component {
     cartIndex: 0,
   };
   handleCartIndex = (event) => {
-    const value =Number( event.target.value);
+    const value = Number(event.target.value);
     this.setState({ cartIndex: value });
   };
   componentDidMount() {
@@ -38,17 +34,6 @@ class Carts extends Component {
 
     return (
       <div className="bg-[#0077b6]   mx-auto">
-        <div className="max-w-4xl mx-auto py-4">
-          <div className="relative inline py-2 group  mx-auto">
-            <Link
-              to="/"
-              className="text-gray-300 hover:text-white font-medium transition duration-300"
-            >
-              ◀ Go Back Home
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          </div>
-        </div>
         <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-100 to-purple-200 min-h-screen flex items-center flex-col gap-5">
           <h1 className="font-bold text-3xl">
             This is a Table of Cart number
@@ -129,7 +114,7 @@ class Carts extends Component {
                     </tr>
                   ))}
                   <tr className="text-center font-bold text-2xl">
-                    <h1>Total Price : {totalPrice.toFixed(2)}</h1>
+                    <td colSpan={5}>Total Price : {totalPrice.toFixed(2)}</td>
                   </tr>
                 </tbody>
               </table>
