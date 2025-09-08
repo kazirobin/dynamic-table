@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { Link } from "react-router";
 import axios from "axios";
 import Table from "../components/table/table.component";
 
@@ -38,18 +37,23 @@ class Users extends Component {
   };
   componentDidMount() {
     const promise = axios.get("https://dummyjson.com/users");
-    promise.then((res, req) => {
-      this.setState({ data: res.data.users });
-      console.log(this.state.data)
-    }).catch((error) => { console.log("Api Error :",error.message) })
+    promise
+      .then((res, req) => {
+        this.setState({ data: res.data.users });
+        console.log(this.state.data);
+      })
+      .catch((error) => {
+        console.log("Api Error :", error.message);
+      });
   }
   render() {
-    const users = this.state.data
     return (
       <div className="bg-[#0077b6]   mx-auto">
-        
-              <Table title="Users" rows={this.state.data} columns={this.state.columns}/>
-     
+        <Table
+          title="Users"
+          rows={this.state.data}
+          columns={this.state.columns}
+        />
       </div>
     );
   }

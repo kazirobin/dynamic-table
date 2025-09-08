@@ -10,27 +10,47 @@ import MainLayout from "../components/layout/main.layout.component";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout><Home /></MainLayout>,
+    element: (
+      <MainLayout>
+        <Home />
+      </MainLayout>
+    ),
     errorElement: <Error />,
   },
   {
     path: "/products",
-    element: <MainLayout><Products/></MainLayout>,
+    element: (
+      <MainLayout>
+        <Products />
+      </MainLayout>
+    ),
     errorElement: <Error />,
   },
   {
     path: "/carts",
-    element: <MainLayout><Carts/></MainLayout>,
+    element: (
+      <MainLayout>
+        <Carts />
+      </MainLayout>
+    ),
     errorElement: <Error />,
   },
   {
     path: "/recipes",
-    element: <MainLayout><Recipes/></MainLayout>,
+    element: (
+      <MainLayout>
+        <Recipes />
+      </MainLayout>
+    ),
     errorElement: <Error />,
   },
   {
     path: "/users",
-    element: <MainLayout><Users/></MainLayout>,
+    element: (
+      <MainLayout>
+        <Users />
+      </MainLayout>
+    ),
     errorElement: <Error />,
   },
 ]);

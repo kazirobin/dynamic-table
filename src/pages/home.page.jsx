@@ -1,21 +1,15 @@
 import { Component } from "react";
-import Navbar from "../components/navbar.component";
 import { Link } from "react-router";
 
 class Home extends Component {
-  state = {
-    hello: "hello",
-  };
   render() {
     return (
       <>
-      
         <div className="h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-6 px-4 shadow-lg">
           <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between">
-
             <div>
               <h1 className="text-3xl font-bold mb-2 sm:mb-0">
-                🧮 Dynamic Table 
+                🧮 Dynamic Table
               </h1>
               <p className="text-sm sm:text-base text-white/90">
                 Fetching live cart data from{" "}

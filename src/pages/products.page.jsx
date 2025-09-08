@@ -1,6 +1,5 @@
 import { Component } from "react";
 import Table from "../components/table/table.component";
-import { Link } from "react-router";
 import axios from "axios";
 
 class Products extends Component {
@@ -49,9 +48,7 @@ class Products extends Component {
   }
   render() {
     return (
-      <div className="bg-[#0077b6]   mx-auto">
-     
-
+      <div className="bg-[#0077b6] mx-auto">
         <Table
           title="Product"
           rows={this.state.data}

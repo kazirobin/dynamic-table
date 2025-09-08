@@ -33,8 +33,6 @@ class Error extends Component {
           >
             Go Home
           </Link>
-
-         
         </div>
       </div>
     );

@@ -38,18 +38,23 @@ class Recipes extends Component {
   };
   componentDidMount() {
     const promise = axios.get("https://dummyjson.com/recipes");
-    promise.then((res, req) => {
-      this.setState({ data: res.data.recipes });
-      console.log(this.state.data)
-    }).catch((error) => { console.log("Api Error :",error.message) })
+    promise
+      .then((res, req) => {
+        this.setState({ data: res.data.recipes });
+        console.log(this.state.data);
+      })
+      .catch((error) => {
+        console.log("Api Error :", error.message);
+      });
   }
   render() {
-    const recipes = this.state.data
     return (
       <div className="bg-[#0077b6]   mx-auto">
-       
-              <Table title="Recipes" rows={this.state.data} columns={this.state.columns}/>
-      
+        <Table
+          title="Recipes"
+          rows={this.state.data}
+          columns={this.state.columns}
+        />
       </div>
     );
   }

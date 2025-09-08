@@ -1,4 +1,4 @@
-import { Link, NavLink, useLocation } from "react-router";
+import { NavLink, useLocation } from "react-router";
 const navItems = [
   { label: "Products", path: "/products" },
   { label: "Carts", path: "/carts" },
@@ -11,14 +11,20 @@ function Navbar() {
   return (
     <nav className="bg-[#0077b6] p-4 shadow-lg">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center">
-        <div className="text-white text-2xl font-bold"><NavLink to="/">My Table</NavLink></div>
+        <div className="text-white text-2xl font-bold">
+          <NavLink to="/">My Table</NavLink>
+        </div>
 
         <ul className="flex flex-col sm:flex-row space-x-6 mt-4 sm:mt-0  gap-y-4">
           {navItems.map(({ label, path }, index) => (
             <li key={index} className="relative group ">
               <NavLink
                 to={path}
-                className={({isActive}) => isActive ?"hidden":"text-gray-300 hover:text-white font-medium transition duration-300 flex"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "hidden"
+                    : "text-gray-300 hover:text-white font-medium transition duration-300 flex"
+                }
               >
                 {label}
               </NavLink>
