@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router";
 import Home from "../pages/home.page";
 import Error from "../pages/error.page";
 import Products from "../pages/products.page";
-import Carts from "../pages/carts.page";
+import Cart from "../pages/cart.page";
 import Recipes from "../pages/recipes.page";
 import Users from "../pages/users.page";
 import MainLayout from "../components/layout/main.layout.component";
@@ -27,10 +27,10 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: "/carts",
+    path: "/cart",
     element: (
       <MainLayout>
-        <Carts />
+        <Cart />
       </MainLayout>
     ),
     errorElement: <Error />,
@@ -54,3 +54,4 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
   },
 ]);
+

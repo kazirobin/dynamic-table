@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router";
 const navItems = [
   { label: "Products", path: "/products" },
-  { label: "Carts", path: "/carts" },
+  { label: "Cart", path: "/cart" },
   { label: "Recipes", path: "/recipes" },
   { label: "Users", path: "/users" },
 ];

@@ -1,9 +1,43 @@
 import { Component } from "react";
 import axios from "axios";
+import Table from "../components/table/table.component";
 
-class Carts extends Component {
+class Cart extends Component {
   state = {
     data: [],
+    columns: [
+      {
+        label: "title",
+        path: "title",
+        content: (row, column) => <span>{row[column.path]}</span>,
+      },
+      {
+        label: "img",
+        path: "thumbnail",
+        content: (row, column) => (
+          <img src={row[column.path]} className="w-15" />
+        ),
+      },
+      {
+        label: "price",
+        path: "price",
+        content: (row, column) => <span>{row[column.path]}</span>,
+      },
+      {
+        label: "quantity",
+        path: "quantity",
+        content: (row, column) => (
+          <div className="text-center">{row[column.path]}</div>
+        ),
+      },
+      {
+        label: "total price",
+        path: "total price",
+        content: (row, column) => (
+          <span>{(row.price * row.quantity).toFixed(2)}</span>
+        ),
+      },
+    ],
     cartIndex: 0,
   };
   handleCartIndex = (event) => {
@@ -36,7 +70,7 @@ class Carts extends Component {
       <div className="bg-[#0077b6]   mx-auto">
         <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-100 to-purple-200 min-h-screen flex items-center flex-col gap-5">
           <h1 className="font-bold text-3xl">
-            This is a Table of Cart number
+            Select a number
             <select
               className="ms-4 cursor-pointer text-center border border-green-500"
               name=""
@@ -78,52 +112,21 @@ class Carts extends Component {
               <option value="29">30</option>
             </select>
           </h1>
-          <div className="backdrop-blur-md bg-white/30 rounded-xl shadow-xl overflow-hidden w-full max-w-4xl">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm">
-                <thead className="bg-white/20 uppercase tracking-wider">
-                  <tr>
-                    <th className="px-4 sm:px-6 py-3 sm:py-4">title</th>
-                    <th className="px-4 sm:px-6 py-3 sm:py-4">img</th>
-                    <th className="px-4 sm:px-6 py-3 sm:py-4">price</th>
-                    <th className="px-4 sm:px-6 py-3 sm:py-4">quantity</th>
-                    <th className="px-4 sm:px-6 py-3 sm:py-4">total price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cartsProduct.map((product) => (
-                    <tr
-                      key={product.id}
-                      className="hover:bg-white/10 transition duration-300 ease-in-out"
-                    >
-                      <td className="px-4 sm:px-6 py-3 sm:py-4">
-                        {product.title}
-                      </td>
-                      <td className="px-4 sm:px-6 py-3 sm:py-4">
-                        <img src={product.thumbnail} className="w-20" alt="" />
-                      </td>
-                      <td className="px-4 sm:px-6 py-3 sm:py-4">
-                        {product.price}
-                      </td>
-                      <td className="px-4 sm:px-6 py-3 sm:py-4 ">
-                        {product.quantity}
-                      </td>
-                      <td className="px-4 sm:px-6 py-3 sm:py-4 ">
-                        {Number(product.quantity * product.price).toFixed(2)}
-                      </td>
-                    </tr>
-                  ))}
-                  <tr className="text-center font-bold text-2xl">
-                    <td colSpan={5}>Total Price : {totalPrice.toFixed(2)}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+
+          <Table title="Cart" rows={cartsProduct} columns={this.state.columns}>
+            <tr>
+              <td className="ps-6 font-semibold text-2xl">
+                Total Product : {cartsProduct.length}
+              </td>
+              <td className="text-2xl font-semibold text-center" colSpan={4}>
+                Total Price : {totalPrice.toFixed(2)}
+              </td>
+            </tr>
+          </Table>
         </div>
       </div>
     );
   }
 }
 
-export default Carts;
+export default Cart;
