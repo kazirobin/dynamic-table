@@ -12,6 +12,7 @@ function TableBody({ rows, columns,children }) {
               {column.content(row, column)}
             </td>
           ))}
+          
         </tr>
       ))}
       {children}

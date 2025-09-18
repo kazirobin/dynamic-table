@@ -114,6 +114,7 @@ class Cart extends Component {
           </h1>
 
           <Table title="Cart" rows={cartsProduct} columns={this.state.columns}>
+            
             <tr>
               <td className="ps-6 font-semibold text-2xl">
                 Total Product : {cartsProduct.length}
@@ -122,6 +123,7 @@ class Cart extends Component {
                 Total Price : {totalPrice.toFixed(2)}
               </td>
             </tr>
+
           </Table>
         </div>
       </div>

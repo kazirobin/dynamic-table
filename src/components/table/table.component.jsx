@@ -12,6 +12,7 @@ function Table ({title, rows, columns,children}) {
               <TableBody rows={rows} columns={columns}>
                 {children}
               </TableBody>
+              
             </table>
           </div>
         </div>
